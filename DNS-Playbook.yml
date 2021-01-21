@@ -24,8 +24,9 @@
   - name: configure hostname
     ios_config:
        lines: hostname {{ inventory_hostname }}
+       save: true
 
   - name: configue DNS
     ios_config:
        lines: ip name-server {{dns}}
-
+       save: true
