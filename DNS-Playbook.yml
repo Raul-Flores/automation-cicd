@@ -19,14 +19,14 @@
   connection: network_cli
   gather_facts: no
   vars:
-    dns: "1.1.1.1"
+    dns: "2.2.2.2"
   tasks:
   - name: configure hostname
     ios_config:
        lines: hostname {{ inventory_hostname }}
-       save: true
+       save_when: modified
 
   - name: configue DNS
     ios_config:
        lines: ip name-server {{dns}}
-       save: true
+       save_when: modified
