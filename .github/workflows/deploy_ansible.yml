@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: eve-runner
+    runs-on: self-hosted
     steps:
     - name: checkout repo
       uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
         targets: ""
   deployAnsible:
     needs: build
-    runs-on: eve-runner
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v1
     - uses: ./.github/actions/ansible
