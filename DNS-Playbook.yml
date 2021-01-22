@@ -19,7 +19,7 @@
   connection: network_cli
   gather_facts: no
   vars:
-    dns: "3.3.3.3"
+    dns: "5.5.5.25"
   tasks:
   - name: configure hostname
     ios_config:
