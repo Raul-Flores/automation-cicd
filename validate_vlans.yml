@@ -1,0 +1,17 @@
+- name: Envio de comandos a equipos playbook-1
+  hosts: cisco_switches
+  gather_facts: false
+  connection: network_cli
+
+  tasks:
+    - name: validar vlans
+      ios_command:
+        commands:
+          - show vlan brief
+      register: output
+      no_log: true
+      
+
+    - name: Mostrar el resultado del comando
+      debug:
+        var: output.stdout_lines

@@ -1,6 +1,6 @@
 ---
 - name: Envio de comandos a equipos playbook-1
-  hosts: cisco_devices
+  hosts: SW1
   gather_facts: false
   connection: network_cli
 
@@ -8,23 +8,23 @@
   - name: Comando show ip interfaces
     ios_command:
        commands:
-         - show ip int brief
+         - show vlans
     register: output
 
   - name: Mostrar el resultado del comando
     debug: var=output
 
-- name: configurando DNS
-  hosts: cisco_devices
-  connection: network_cli
-  gather_facts: no
-  vars:
-    dns: "1.1.1.1"
-  tasks:
-  - name: configure hostname
-    ios_config:
-       lines: hostname {{ inventory_hostname }}
-       save_when: modified
+#- name: configurando DNS
+#  hosts: cisco_devices
+#  connection: network_cli
+#  gather_facts: no
+#  vars:
+#    dns: "1.1.1.1"
+#  tasks:
+#  - name: configure hostname
+#    ios_config:
+#       lines: hostname {{ inventory_hostname }}
+#       save_when: modified
 
   - name: configue DNS
     ios_config:

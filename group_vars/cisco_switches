@@ -1,0 +1,21 @@
+---
+ansible_connection: network_cli
+ansible_ssh_common_args: StrictHostKeyChecking=no
+ansible_user: xe
+ansible_password: P@ssw0rd
+ansible_network_os: ios
+ansible_become: yes
+ansible_become_method: enable
+ansible_become_password: cisco
+vlans:
+  - { id: 100, name: finance }
+  - { id: 101, name: human_resources }
+  - { id: 102, name: marketing }
+  - { id: 103, name: sales }
+domain_name: cisco.local
+username: xe
+password: P@ssw0rd
+os: ios
+filter: facts
+commit_changes: True
+rollback: True

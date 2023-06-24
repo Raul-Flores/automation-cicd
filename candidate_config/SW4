@@ -1,0 +1,18 @@
+!
+hostname SW4
+ip domain-name cisco.local
+!
+!
+vlan 100
+  name finance
+  exit
+vlan 101
+  name human_resources
+  exit
+vlan 102
+  name marketing
+  exit
+vlan 103
+  name sales
+  exit
+!

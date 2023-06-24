@@ -1,0 +1,4 @@
+---
+ansible_host: 2.0.0.1
+hostname: SW1
+

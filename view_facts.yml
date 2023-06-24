@@ -1,0 +1,24 @@
+- name: Construye el template y envia la configuracion de VLANs a los switches
+  hosts: cisco_switches
+  gather_facts: false
+  connection: network_cli
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+  tasks:
+    #- name: Construyendo templates
+    #  template:
+    #    src=templates/vlans.j2
+    #    dest=candidate_config/{{ inventory_hostname }}.conf
+
+    - name: Enviando configuraciones      
+      napalm_get_facts:
+        hostname={{ hostname }}
+        username={{ username }}
+        password={{ password }}
+        dev_os={{ os }}
+        filter={{ filter }}
+      register: result
+
+    - name: print results   
+      debug: msg="{{ result }}"
+

@@ -1,0 +1,8 @@
++vlan 100
++  name finance
++vlan 101
++  name human_resources
++vlan 102
++  name marketing
++vlan 103
++  name sales
